@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>❤️ Te Amo Yohanna ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #ff6b6b, #ff9999);
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            z-index: 1;
+            position: relative;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .message {
+            color: white;
+            font-size: 1.6em;
+            opacity: 0;
+            transform: translateY(20px);
+            padding: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.4;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            transition: opacity 1.5s ease, transform 1.5s ease;
+        }
+
+        .signature {
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-top: 20px;
+            grid-column: span 2;
+            text-align: center;
+        }
+
+        .heart {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            background: #ff4d4d;
+            transform: rotate(45deg);
+            animation: floatHeart 4s ease-in-out infinite;
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 30px;
+            height: 30px;
+            background: #ff4d4d;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart::before {
+            left: -15px;
+        }
+
+        .heart::after {
+            top: -15px;
+        }
+
+        .start-button {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            z-index: 3;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .start-button:hover {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .final-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity 2s ease;
+            z-index: 4;
+            text-align: center;
+            background: rgba(255, 105, 180, 0.3);
+            padding: 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes floatHeart {
+            0% { transform: rotate(45deg) translateY(0); opacity: 0.6; }
+            50% { transform: rotate(45deg) translateY(-20px); opacity: 0.8; }
+            100% { transform: rotate(45deg) translateY(0); opacity: 0.6; }
+        }
+
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Ocultar el reproductor de audio */
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button class="start-button">❤️ Comenzar Presentación ❤️</button>
+
+    <div class="container hidden">
+        <div class="column">
+            <div class="message">Mi amor, Yohanna:</div>
+            <div class="message">Hoy, en este San Valentín, debería estar celebrando contigo, haciéndote sonreír y demostrándote lo mucho que significas para mí.</div>
+            <div class="message">Pero sé que mi error ha puesto distancia entre nosotros, y eso es algo que me duele más de lo que puedo expresar.</div>
+            <div class="message">No hay palabras suficientes para describir cuánto lamento haberte fallado. Sé que rompí tu confianza y que el dolor que te causé no se borra con simples disculpas.</div>
+            <div class="message">Pero también sé que mi amor por ti es real, profundo y sincero.</div>
+        </div>
+        <div class="column">
+            <div class="message">Y por eso, en este día en el que el amor es el protagonista, quiero pedirte desde el fondo de mi corazón una oportunidad.</div>
+            <div class="message">Quiero demostrarte que puedo ser mejor, que puedo sanar lo que dañé y que mi único deseo es hacerte feliz.</div>
+            <div class="message">No te pido que olvides de un día para otro, pero sí que me permitas demostrarte con hechos que mi arrepentimiento es genuino.</div>
+            <div class="message">Quiero luchar por nuestro amor, reconstruir lo que se quebró y darte el lugar que siempre mereces: el centro de mi vida.</div>
+            <div class="message">Si en tu corazón queda un espacio para mí, si aún crees que nuestro amor merece otra oportunidad, aquí estoy, dispuesto a darlo todo por ti.</div>
+        </div>
+        <div class="message signature">Porque te amo, Yohanna, y este San Valentín solo tiene sentido si estás a mi lado.<br><br>
+        Con todo mi amor y mi más profundo arrepentimiento,<br>Jose Andres ❤️</div>
+    </div>
+
+    <div class="final-message hidden">
+        ¡Te Amo Por Siempre Yohanna! ❤️
+    </div>
+
+    <!-- Reproductor de audio oculto -->
+    <audio id="background-audio" autoplay loop hidden>
+        <source src="23 - Morat (letra).mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        window.onload = () => {
+            const audio = document.getElementById('background-audio');
+            
+            // Intenta reproducir el audio automáticamente
+            audio.play().catch(error => {
+                console.log("La reproducción automática fue bloqueada. Requiere interacción del usuario.");
+            });
+    
+            const startButton = document.querySelector('.start-button');
+            const container = document.querySelector('.container');
+            const finalMessage = document.querySelector('.final-message');
+            let heartInterval;
+    
+            startButton.addEventListener('click', () => {
+                startButton.classList.add('hidden');
+                container.classList.remove('hidden');
+                
+                // Reproducir audio al hacer clic en comenzar, si no se ha podido antes
+                audio.play();
+    
+                startTimedAnimations();
+            });
+    
+            function startTimedAnimations() {
+                const messages = document.querySelectorAll('.message');
+                messages.forEach((message, index) => {
+                    setTimeout(() => {
+                        message.classList.add('fade-in');
+                    }, index * 3000);
+                });
+    
+                heartInterval = setInterval(createHeart, 500);
+    
+                setTimeout(() => {
+                    container.classList.add('hidden');
+                    finalMessage.classList.remove('hidden');
+                    finalMessage.style.opacity = '1';
+                }, messages.length * 3000 + 5000);
+    
+                setTimeout(() => {
+                    clearInterval(heartInterval);
+                    const hearts = document.querySelectorAll('.heart');
+                    hearts.forEach(heart => heart.remove());
+                }, messages.length * 3000 + 10000);
+            }
+    
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.top = Math.random() * window.innerHeight + 'px';
+                const size = Math.random() * 20 + 20;
+                heart.style.width = size + 'px';
+                heart.style.height = size + 'px';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                document.body.appendChild(heart);
+    
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }
+        };
+    </script>
+    
+</body>
+</html>
